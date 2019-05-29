@@ -1,5 +1,5 @@
 # HelloWorld
 
-#mvn clean install
+mvn clean install
 
-#mvn exec:java
+mvn exec:java
