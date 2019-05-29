@@ -4,10 +4,15 @@ package com.corejava;
  * Hello world!
  *
  */
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+
+        FunctinalInterface fi=(s) -> {System.out.println(s);};
+        fi.print("Hello world Lamda !!");
     }
+}
+interface FunctinalInterface{
+    public void print(String s);
 }
