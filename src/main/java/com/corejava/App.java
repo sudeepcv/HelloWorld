@@ -8,6 +8,13 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        //LambdaMethodReferences   classname :: methodname
+        Thread thread=new Thread(App::print);
+        thread.start();
+    }
+
+    public static void print(){
+        System.out.println("Lambda method references");
+
     }
 }
