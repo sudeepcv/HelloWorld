@@ -14,18 +14,18 @@ public class App {
 
         List<Person> people = Arrays.asList(new Person("sudeep", 29), new Person("manu", 30), new Person("Tinu", 24));
 
-        System.out.println("for loop:");
-        for (int i = 0; i < people.size(); i++) {
-            System.out.println(people.get(i).getName());
-        }
-        System.out.println("enhanced for loop:");
-        for (Person p : people) {
-            System.out.println(p.getName());
-        }
-        System.out.println("forEach:");
-        people.forEach((p) -> {
+
+        // people.stream().forEach(p -> {
+        //     System.out.println(p.getName());
+        // });
+
+
+             people.stream()
+             .filter(p-> {return p.getName().contains("s");})
+             .forEach(p -> {
             System.out.println(p.getName());
         });
+
     }
 
 }
