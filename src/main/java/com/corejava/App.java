@@ -14,33 +14,18 @@ public class App {
 
         List<Person> people = Arrays.asList(new Person("sudeep", 29), new Person("manu", 30), new Person("Tinu", 24));
 
-        System.out.println("before sort:");
-
-        PrintAllPeople(people);
-
-        // java 7 sort
-
-        // Collections.sort(people, new Comparator<Person>() {
-        //     @Override
-        //     public int compare(Person o1, Person o2) {
-        //         return o1.getName().compareTo(o2.getName());
-        //     }
-        // });
-
-        System.out.println("after sort:");
-
-        // PrintAllPeople(people);
-
-        // java 8 lambda sort
-
-        Collections.sort(people,(Person o1,Person o2)->{ return o1.getName().compareTo(o2.getName());});
-        PrintAllPeople(people);
-
-    }
-
-    private static void PrintAllPeople(List<Person> people) {
+        System.out.println("for loop:");
+        for (int i = 0; i < people.size(); i++) {
+            System.out.println(people.get(i).getName());
+        }
+        System.out.println("enhanced for loop:");
         for (Person p : people) {
             System.out.println(p.getName());
         }
+        System.out.println("forEach:");
+        people.forEach((p) -> {
+            System.out.println(p.getName());
+        });
     }
+
 }
