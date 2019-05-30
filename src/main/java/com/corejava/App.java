@@ -1,9 +1,10 @@
 package com.corejava;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Hello world!
@@ -11,25 +12,33 @@ import java.util.List;
  */
 public class App {
     public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        Random r=new Random();
 
-        List<Person> people = Arrays.asList(new Person("sudeep", 29), new Person("manu", 30), new Person("Tinu", 24));
 
-        // people.stream().forEach(p -> {
-        // System.out.println(p.getName());
-        // });
+        for(int i=0;i<100;i++){
+            list.add( r.nextInt(100));
+        }
 
-        people.stream().filter(p -> {
-            return p.getName().contains("s");
-        }).forEach(p -> {
-            System.out.println(p.getName());
-        });
+        Comparator c = Collections.reverseOrder();
 
-        people.parallelStream().filter(p -> {
-            return p.getName().contains("s");
-        }).forEach(p -> {
-            System.out.println(p.getName());
-        });
+        Collections.sort(list,c);
+
+
+
+        for (Integer i : list) {
+            System.out.println("String value:" + i);
+        }
 
     }
+
+}
+
+class customSort implements Comparator<Integer>{
+
+	@Override
+	public int compare(Integer o1, Integer o2) {
+		return o1>o2?0:1;
+	}
 
 }
