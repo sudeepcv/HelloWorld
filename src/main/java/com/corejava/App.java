@@ -20,9 +20,9 @@ public class App {
             list.add( r.nextInt(100));
         }
 
-        Comparator c = Collections.reverseOrder();
+        // Comparator c = Collections.reverseOrder();
 
-        Collections.sort(list,c);
+        Collections.sort(list,new customSort());
 
 
 
@@ -38,7 +38,7 @@ class customSort implements Comparator<Integer>{
 
 	@Override
 	public int compare(Integer o1, Integer o2) {
-		return o1>o2?0:1;
+		return o1>o2?-1:o2< o1?0:1;
 	}
 
 }
