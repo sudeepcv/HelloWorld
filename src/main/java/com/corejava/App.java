@@ -14,15 +14,19 @@ public class App {
 
         List<Person> people = Arrays.asList(new Person("sudeep", 29), new Person("manu", 30), new Person("Tinu", 24));
 
-
         // people.stream().forEach(p -> {
-        //     System.out.println(p.getName());
+        // System.out.println(p.getName());
         // });
 
+        people.stream().filter(p -> {
+            return p.getName().contains("s");
+        }).forEach(p -> {
+            System.out.println(p.getName());
+        });
 
-             people.stream()
-             .filter(p-> {return p.getName().contains("s");})
-             .forEach(p -> {
+        people.parallelStream().filter(p -> {
+            return p.getName().contains("s");
+        }).forEach(p -> {
             System.out.println(p.getName());
         });
 
