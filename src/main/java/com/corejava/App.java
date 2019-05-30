@@ -1,6 +1,8 @@
 package com.corejava;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -11,25 +13,15 @@ import java.util.List;
  */
 public class App {
     public static void main(String[] args) {
+        Collection<String> collection = new ArrayList<>();
 
-        List<Person> people = Arrays.asList(new Person("sudeep", 29), new Person("manu", 30), new Person("Tinu", 24));
+        collection.add("sudeep");
+        collection.add("manu");
+        collection.add("Tinu");
 
-        // people.stream().forEach(p -> {
-        // System.out.println(p.getName());
-        // });
-
-        people.stream().filter(p -> {
-            return p.getName().contains("s");
-        }).forEach(p -> {
-            System.out.println(p.getName());
-        });
-
-        people.parallelStream().filter(p -> {
-            return p.getName().contains("s");
-        }).forEach(p -> {
-            System.out.println(p.getName());
-        });
-
+        for (String s : collection) {
+            System.out.println("String value:" + s);
+        }
     }
 
 }
