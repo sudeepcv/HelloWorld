@@ -1,9 +1,11 @@
 package com.corejava;
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * Hello world!
@@ -11,48 +13,42 @@ import java.util.TreeSet;
  */
 public class App {
     public static void main(String[] args) {
-        // List<Person> people = Arrays.asList(new Person("sudeep", 29), new
-        // Person("manu", 30), new Person("Tinu", 24));
-        // people.forEach(p -> System.out.println(p.toString()));
-        // Collections.sort(people);
-        // System.out.println("after sort:");
+        Map<String, String> map = new HashMap<>();
 
-        // people.forEach(p -> System.out.println(p.toString()));
+        map.put("name", "sudeep");
+        map.put("age", "29");
+        map.put("place", "kochi");
 
-        Set<Integer> set = new HashSet<>();
-        set.add(1);
-        set.add(2);
-        set.add(1);
-        set.add(5);
-        set.add(4);
+        System.out.println(map);
+        System.out.println("using keys:");
+        Set<String> keys = map.keySet();
 
-        System.out.println("Hashset un ordered and un sorted duplicate not allowed");
-
-        for (Integer i : set) {
-            System.out.println(i);
+        for (String key : keys) {
+            System.out.println(map.get(key));
         }
 
-        Set<Integer> linkedHashSet = new LinkedHashSet<>();
-        linkedHashSet.add(1);
-        linkedHashSet.add(2);
-        linkedHashSet.add(1);
-        linkedHashSet.add(5);
-        linkedHashSet.add(4);
-        System.out.println("LinkedHashSet  ordered and un sorted . it maintains the insertion order");
-        for (Integer i : linkedHashSet) {
-            System.out.println(i);
+        System.out.println("using values:");
+        Collection<String> values = map.values();
+        for (String value : values) {
+            System.out.println(value);
         }
 
-        Set<Integer> treeSet = new TreeSet<>();
-        treeSet.add(1);
-        treeSet.add(2);
-        treeSet.add(1);
-        treeSet.add(5);
-        treeSet.add(4);
-        System.out.println("Ascending Order");
+        Set<Entry<String, String>> entryset = map.entrySet();
 
-        for (Integer i : treeSet) {
-            System.out.println(i);
+        System.out.println("using entryset");
+        for (Entry<String, String> entry : entryset) {
+            System.out.println(entry.getKey());
+            System.out.println(entry.getValue());
+        }
+
+        System.out.println("using iterator");
+        Iterator<Entry<String, String>> it = map.entrySet().iterator();
+
+        while (it.hasNext()) {
+            Entry<String, String> entry = it.next();
+            System.out.println(entry.getKey());
+            System.out.println(entry.getValue());
+
         }
 
     }
