@@ -1,29 +1,33 @@
 package com.corejava;
 
-import java.security.cert.PKIXRevocationChecker.Option;
-import java.util.Optional;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
 
-/**
- * Hello world!
- *
- */
-public class App
-{
-     public static void main(String[] args)
-    {
-App app=null;
-// App app=new App();
-Optional<App> optional= Optional.ofNullable(app);
 
-if(optional.isPresent()){
-    System.out.println("App is not null");
-    App result=optional.get();
-    System.out.println(result.hashCode());
+public class App {
+    public static void main(String[] args) {
 
-}else{
-    System.out.println("App is  null");
-}
+        Date oldDate=new Date();
+
+        System.out.println("oldDate:"+oldDate);
+
+        LocalDate ld= LocalDate.now();
+        System.out.println("ld:"+ld);
+
+        LocalTime lt=LocalTime.now();
+
+        System.out.println("lt:"+lt);
+
+
+
+
+
 
     }
 
+
+
 }
+
+
