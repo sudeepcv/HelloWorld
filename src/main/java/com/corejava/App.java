@@ -1,6 +1,6 @@
 package com.corejava;
 
-class Print extends Thread {
+class Print implements Runnable {
 
     public void run() {
 
@@ -21,6 +21,8 @@ class Print extends Thread {
 public class App {
     public static void main(String[] args) {
         Print print = new Print();
-        print.start();
+        Thread thread=new Thread(print);
+        thread.start();
+        
     }
 }
