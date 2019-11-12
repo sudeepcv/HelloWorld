@@ -27,6 +27,9 @@ public class App {
                     e.printStackTrace();
                 }
             });
+            t1.setPriority(1);
+            t2.setPriority(10);
+            // priority values from 1 to 10
         t1.start();
         t2.start();
 
@@ -35,6 +38,9 @@ public class App {
             System.out.println(t1.isAlive());
             t1.join();
             t2.join();
+
+            System.out.println(t1.getPriority());
+            System.out.println(t2.getPriority());
             System.out.println(t1.isAlive());
                System.out.println("threads completed");
 
