@@ -30,6 +30,19 @@ public class App {
         t1.start();
         t2.start();
 
+        try {
+
+            System.out.println(t1.isAlive());
+            t1.join();
+            t2.join();
+            System.out.println(t1.isAlive());
+               System.out.println("threads completed");
+
+        } catch (InterruptedException e) {            
+            e.printStackTrace();
+        }
+        
+     
 
     }
 }
