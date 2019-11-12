@@ -1,24 +1,26 @@
 package com.corejava;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {        
-        Thread thread=new Thread(new Runnable(){
-        
-            @Override
-            public void run() {
-                System.out.println("Hello runnable");
+class Print extends Thread {
+
+    public void run() {
+
+        try {
+            for (int i = 0; i < 5; i++) {
+                System.out.println("Hello Thread");
+                Thread.sleep(1000);
+
             }
-        });
-        thread.run();
 
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
-        Thread lambdaThread=new Thread(() -> {System.out.println("Hello runnable Lambda!!");});
-        lambdaThread.run();
+}
+
+public class App {
+    public static void main(String[] args) {
+        Print print = new Print();
+        print.start();
     }
 }
