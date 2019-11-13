@@ -1,36 +1,30 @@
 package com.corejava;
 
-import java.util.Random;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class App {
 
-    public static void main(String[] args) throws InterruptedException {
-        final Processor processor = new Processor();
-        Thread t1 = new Thread(new Runnable() {
-            public void run() {
-                try {
-                    processor.producer();
-                } catch (InterruptedException e) {
-                }
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
 
-            }
-        });
-
-        Thread t2 = new Thread(() -> {
+        ExecutorService executor = Executors.newCachedThreadPool();
+        Future<String> resutl = executor.submit(() -> {
             try {
-                processor.consumer();
+                System.out.println("starts..");
+                Thread.sleep(2000);
+                System.out.println("ends....");
+                return "execution completed";
             } catch (InterruptedException e) {
+                e.printStackTrace();
+                return null;
             }
-
         });
 
-        t1.start();
-        t2.start();
-
-        t1.join();
-        t2.join();
+        executor.shutdown();
+        System.out.println("the result is:->" + resutl.get());
 
     }
 }
